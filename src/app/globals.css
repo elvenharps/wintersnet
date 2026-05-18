@@ -274,3 +274,14 @@ body {
   font-weight: 600;
   color: var(--foreground);
 }
+
+.prose-article code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9em;
+  padding: 0.05em 0.4em;
+  border-radius: 0.25em;
+  background: color-mix(in oklab, var(--surface-muted) 85%, transparent);
+  border: 1px solid var(--border);
+  color: var(--foreground);
+  white-space: nowrap;
+}

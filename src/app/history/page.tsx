@@ -210,14 +210,10 @@ export default function HistoryPage() {
           The Chat Control itself was distributed as an ActiveX COM object,
           which is what locked the official user experience to Internet
           Explorer (and, more loosely, to Netscape Navigator 4.x and the
-          MSNTV/WebTV set-top boxes). Under the hood, GateKeeper was a{" "}
-          SASL-based Security Service Provider that authorised non-Passport
-          clients using a randomised session key; GateKeeperPassport extended
-          the same primitive to require valid .NET Passport credentials
-          (Passport being the predecessor of today&rsquo;s Microsoft account).
-          In 2001 Microsoft went a step further and closed off third-party
-          IRC clients entirely, leaving the browser-based Chat Control as the
-          only officially sanctioned way in.
+          MSNTV/WebTV set-top boxes). In 2001 Microsoft went a step further
+          and closed off third-party IRC clients entirely, leaving the
+          browser-based Chat Control as the only officially sanctioned way
+          in.
         </p>
         <p>
           The community didn&rsquo;t take that quietly. Robert Lancaster
@@ -226,6 +222,60 @@ export default function HistoryPage() {
           against MSN&rsquo;s servers, breathing years of additional life
           into the mIRC and Pirch ecosystem and quietly spawning a small
           economy of unofficial clients and connector libraries.
+        </p>
+
+        <h2>GateKeeper and GateKeeperPassport</h2>
+        <p>
+          Authentication in MSN Chat&rsquo;s Web Chat era was layered on top
+          of the IRCx <code>AUTH</code> command (itself a wrapper around{" "}
+          SASL, the Simple Authentication and Security Layer). Microsoft
+          registered two SASL mechanisms with their own servers and shipped
+          both as Security Support Providers under SSPI, the same framework
+          NT used for Kerberos and NTLM. The two mechanisms looked very
+          similar on the wire and almost identical at the protocol layer,
+          but they corresponded to two very different kinds of user.
+        </p>
+        <p>
+          <strong>GateKeeper</strong> was the guest path. A client could
+          connect, run the SASL handshake without supplying any Passport
+          credentials, and end up in MSN Chat under an auto-assigned
+          nickname of the form <code>Guest_</code> followed by a numeric
+          suffix. The server kept this lane open by issuing a random
+          session key during the handshake, which the Chat Control combined
+          with embedded keying material in <code>msnchat.ocx</code> to
+          produce its response. Guests were intentionally second-class
+          citizens: nicknames were ephemeral (a new <code>Guest_#####</code>
+          on every login), profiles did not persist, and a guest could not
+          create or own a channel, hold the Host key, or transfer ownership.
+          For most spammers and casual visitors this was the path of least
+          resistance, which is also why most of MSN Chat&rsquo;s abuse
+          mitigation work was aimed at it.
+        </p>
+        <p>
+          <strong>GateKeeperPassport</strong> was the registered path. The
+          same SASL handshake ran, but the client first obtained a ticket
+          from the .NET Passport network (the precursor to today&rsquo;s
+          Microsoft account) and bound that ticket into the authentication
+          exchange. The chat server validated the ticket against Passport
+          out of band; on success the user joined under their chosen
+          persistent nickname rather than a <code>Guest_</code> handle, and
+          unlocked the rest of the service &mdash; creating and owning
+          channels, holding Host/Owner keys, persistent profiles, and the
+          full range of moderated and members-only rooms.
+        </p>
+        <p>
+          The interesting design choice was that the proprietary part &mdash;
+          the actual algorithm the Chat Control used to answer GateKeeper&rsquo;s
+          random session key &mdash; lived almost entirely inside{" "}
+          <code>msnchat.ocx</code>. That made GateKeeper resistant for a
+          while, but, once the OCX was distributed to every browser that
+          loaded chat.msn.com, the keying material and the response routine
+          were effectively in everyone&rsquo;s hands. From there it was a
+          matter of static analysis &mdash; which is exactly the route
+          Lancaster and others took. GateKeeperPassport was harder to abuse
+          in the same way: forging the Passport ticket itself was a much
+          larger problem than reproducing a single client-side response, so
+          third-party clients overwhelmingly stuck to the guest lane.
         </p>
 
         <h2>Categories and the chat room landscape</h2>
