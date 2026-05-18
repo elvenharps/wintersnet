@@ -315,22 +315,23 @@ body {
 
 .prose-article .toc ol {
   margin: 0;
-  padding: 0;
-  list-style: decimal inside;
-  columns: 1;
+  padding: 0 0 0 1.25rem;
+  list-style: decimal outside;
+  display: grid;
+  grid-template-columns: 1fr;
   column-gap: 1.5rem;
+  row-gap: 0.05rem;
 }
 
 @media (min-width: 640px) {
   .prose-article .toc ol {
-    columns: 2;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
 .prose-article .toc li {
   margin: 0;
   padding: 0.15rem 0;
-  break-inside: avoid;
   font-size: 0.92rem;
   color: var(--muted);
 }
