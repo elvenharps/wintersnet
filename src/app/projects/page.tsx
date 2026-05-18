@@ -105,9 +105,12 @@ function ProjectCard({ project }: { project: Project }) {
           {project.description}
         </p>
 
-        <ul className="mt-6 grid gap-2 sm:grid-cols-2 text-sm text-[var(--muted)]">
+        <ul className="mt-6 sm:columns-2 sm:gap-x-6 text-sm text-[var(--muted)]">
           {project.features.map((f) => (
-            <li key={f} className="flex items-start gap-2 leading-relaxed">
+            <li
+              key={f}
+              className="flex items-start gap-2 leading-relaxed mb-2 break-inside-avoid"
+            >
               <span
                 aria-hidden="true"
                 className="mt-1.5 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[var(--accent)]"
