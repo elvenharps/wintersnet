@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ForestSilhouette } from "@/components/forest-silhouette";
+import { DeadHost } from "@/components/dead-host";
 
 export const metadata: Metadata = {
   title: "History of MSN Chat",
@@ -95,21 +96,21 @@ export default function HistoryPage() {
           While it would be inaccurate to stipulate that the origins of MSN Chat
           are directly correlated with Comic Chat, their respective histories
           are certainly closely intertwined. Comic Chat, and indeed its server
-          of mic.msn.com, came to be with the release of Windows 95 and Internet
+          of <DeadHost since="1996">mic.msn.com</DeadHost>, came to be with the release of Windows 95 and Internet
           Explorer 3.0 in 1996. While the server was indeed a true IRC server,
           if one was to connect using an alternate client (for example, Pirch)
           it would be somewhat irritating, as Comic Chat users would send text
           with a special prefix not interpreted by any other clients. The Comic
           Chat server remained separate until Microsoft decided to shut down
           its development servers for Exchange Chat, and merge the users of the
-          Comic Chat server into irc.msn.com.
+          Comic Chat server into <DeadHost since="1999">irc.msn.com</DeadHost>.
         </p>
 
         <h2>The beginning of MSN Chat</h2>
         <p>
           In order to truly understand how MSN Chat came to be, one has to look
           as far back as 1994. A Microsoft-sponsored project was launched,
-          referred to as chatbeta.exchange.microsoft.com. This was the very
+          referred to as <DeadHost since="1995">chatbeta.exchange.microsoft.com</DeadHost>. This was the very
           first IRCx server which users were able to connect to, and was the
           development server for the Exchange Chat functionality. While this
           was not technically a public Chat Server, the administrators and
@@ -118,28 +119,28 @@ export default function HistoryPage() {
           MSN.com was launched by Microsoft. One of the first services that
           MSN.com offered was IRC: initially this was done via the use of two
           different environments, listed below (keep in mind that the users of
-          chat.msn.com were primarily the comic chat users, as this was the
+          <DeadHost since="1996">chat.msn.com</DeadHost> were primarily the comic chat users, as this was the
           default connection address of such):
         </p>
         <ul>
           <li>
-            <strong>publicchat.msn.com</strong> &mdash; This setup was open for
+            <DeadHost since="1997">publicchat.msn.com</DeadHost> &mdash; This setup was open for
             all, regardless of ISP.
           </li>
           <li>
-            <strong>chat.msn.com</strong> &mdash; This was the old server that
+            <DeadHost since="1996">chat.msn.com</DeadHost> &mdash; This was the old server that
             the Comic Chat Client used.
           </li>
         </ul>
         <p>
           How long the aforementioned setup was maintained for has been lost to
-          history, however eventually the two merged and became irc.msn.com,
-          allowing connections on the de-facto IRC port of 6667. irc.msn.com
-          ran separately to chatbeta, however they both used the same software
+          history, however eventually the two merged and became <DeadHost since="1999">irc.msn.com</DeadHost>,
+          allowing connections on the de-facto IRC port of 6667. <DeadHost since="1999">irc.msn.com</DeadHost>
+          ran separately to <DeadHost since="1995">chatbeta</DeadHost>, however they both used the same software
           and supported mostly the same functionality. The commonly used
           clients for these two environments were mIRC, the discontinued Comic
           Chat client and Pirch, the latter gaining a large fanbase and
-          popularity on both. irc.msn.com grew rapidly, and soon was home to
+          popularity on both. <DeadHost since="1999">irc.msn.com</DeadHost> grew rapidly, and soon was home to
           thousands of users who had migrated from other networks, enjoying the
           new functionality introduced by the IRCx draft which Microsoft had
           incorporated into their software.
@@ -149,20 +150,20 @@ export default function HistoryPage() {
         <p>
           Microsoft soon began to realize that running and maintaining three
           separate environments was somewhat fruitless, and required too much
-          maintenance and support; the chatbeta servers were to be switched
+          maintenance and support; the <DeadHost since="1995">chatbeta</DeadHost> servers were to be switched
           offline, and the users and (some) staff transitioned over to
-          irc.msn.com. Towards the end of 1995, chatbeta had been fully shut
+          <DeadHost since="1999">irc.msn.com</DeadHost>. Towards the end of 1995, <DeadHost since="1995">chatbeta</DeadHost> had been fully shut
           down, with the comic chat exclusive servers soon to follow. By 1997,
-          all remaining servers were linked together as irc.msn.com. At this
+          all remaining servers were linked together as <DeadHost since="1999">irc.msn.com</DeadHost>. At this
           stage there were potentially 9 different servers available for users
           to connect to. By 1998/1999, the number of active servers had
           decreased to 7, and the development team behind MSN Chat were
           contemplating what they considered to be its marketable future. A
           deserving mention at this point is how Koach came to be a part of
           what became MSN Chat &mdash; as the server which the Comic Chat
-          client used to connect to (MIC/chat.msn.com) was shut down shortly
-          after the demise of the chatbeta server, the users and staff
-          transitioned over to irc.msn.com too. Koach was hired as a trainer at
+          client used to connect to (<DeadHost since="1996">MIC/chat.msn.com</DeadHost>) was shut down shortly
+          after the demise of the <DeadHost since="1995">chatbeta</DeadHost> server, the users and staff
+          transitioned over to <DeadHost since="1999">irc.msn.com</DeadHost> too. Koach was hired as a trainer at
           this point, in order to educate the users and staff on IRC clients
           and a whole different world than what they were used to with Comic
           Chat.
@@ -171,20 +172,20 @@ export default function HistoryPage() {
         <h2>The era of Web Chat</h2>
         <p>
           In late 1999, what the MSN Chat Development Team had been working on
-          for a while was announced to the public; irc.msn.com was to be
-          closed, and the all new chat.msn.com was to be opened. The
+          for a while was announced to the public; <DeadHost since="1999">irc.msn.com</DeadHost> was to be
+          closed, and the all new <DeadHost since="2003">chat.msn.com</DeadHost> was to be opened. The
           differences were significant, both behind the scenes and at front of
           house. It was a move by MSN to try to open up IRC to more than the
           current client-based audience, by allowing people to chat directly
           from their browser with little to no technical knowledge. At first,
           third party clients such as mIRC and Pirch were still able to connect
-          to chat.msn.com; looking back, this was probably to allow people to
+          to <DeadHost since="2003">chat.msn.com</DeadHost>; looking back, this was probably to allow people to
           transition across correctly, because very shortly afterwards the
           &ldquo;GateKeeper&rdquo; and &ldquo;GateKeeperPassport&rdquo; method
-          of authentication was introduced and connections to chat.msn.com via
+          of authentication was introduced and connections to <DeadHost since="2003">chat.msn.com</DeadHost> via
           third party clients were prohibited (though not fully restricted).
           What became known as Web Chat (OCX, Chat Control) had actually
-          stemmed from the irc.msn.com days; the MSN Chat Development Team had
+          stemmed from the <DeadHost since="1999">irc.msn.com</DeadHost> days; the MSN Chat Development Team had
           been working on a web-based control for the MSN Live Events /
           Celebrity Chats team (Chat Control Versions 1 &ndash; 2), and this
           directly connected to the existing IRC server, with no authentication

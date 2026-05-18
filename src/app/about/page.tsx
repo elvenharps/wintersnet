@@ -30,7 +30,7 @@ export default function AboutPage() {
           <p>
             A messaging and systems engineer by trade, Nathan currently works
             full time for Microsoft as a Service Engineer and Product Manager
-            for Exchange Online. With over 15 years cumulative experience
+            for Exchange Online. With over 20 years cumulative experience
             within Information Services, he uses the wealth of his experience
             to ensure WintersNet continues to exist.
           </p>
