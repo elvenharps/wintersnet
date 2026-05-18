@@ -25,7 +25,7 @@ export default function HistoryPage() {
           <div className="flex items-start gap-3">
             <span
               aria-hidden="true"
-              className="mt-0.5 inline-flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent)] text-[var(--on-accent)] text-xs font-bold"
+              className="mt-0.5 inline-flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent)] text-on-accent text-xs font-bold"
             >
               ✦
             </span>
@@ -39,7 +39,7 @@ export default function HistoryPage() {
             href="https://redmond.chat"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex flex-shrink-0 items-center gap-2 rounded-full border border-[var(--accent)] bg-[var(--accent)] px-4 py-1.5 text-sm font-medium text-[var(--on-accent)] no-underline transition hover:bg-[var(--accent-hover)] hover:border-[var(--accent-hover)] hover:text-[var(--on-accent)]"
+            className="inline-flex flex-shrink-0 items-center gap-2 rounded-full border border-[var(--accent)] bg-[var(--accent)] px-4 py-1.5 text-sm font-medium text-on-accent no-underline transition hover:bg-[var(--accent-hover)] hover:border-[var(--accent-hover)] hover:text-on-accent"
           >
             Join Redmond Chat <span aria-hidden>→</span>
           </a>

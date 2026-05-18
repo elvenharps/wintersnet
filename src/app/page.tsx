@@ -27,7 +27,7 @@ export default function HomePage() {
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
             <Link
               href="/history"
-              className="inline-flex items-center gap-2 rounded-full border border-[var(--accent)] bg-[var(--accent)] px-5 py-2.5 text-sm font-medium text-[var(--on-accent)] no-underline transition hover:bg-[var(--accent-hover)] hover:border-[var(--accent-hover)] hover:text-[var(--on-accent)]"
+              className="inline-flex items-center gap-2 rounded-full border border-[var(--accent)] bg-[var(--accent)] px-5 py-2.5 text-sm font-medium text-on-accent no-underline transition hover:bg-[var(--accent-hover)] hover:border-[var(--accent-hover)] hover:text-on-accent"
             >
               Read the MSN Chat history
               <span aria-hidden>→</span>

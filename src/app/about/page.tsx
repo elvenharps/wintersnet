@@ -37,15 +37,11 @@ export default function AboutPage() {
           <p className="text-[var(--muted)]">
             Nathan can be contacted via e-mail at{" "}
             <a href="mailto:nathan@wintersnet.net">nathan@wintersnet.net</a>,
-            or on the WintersNet{" "}
-            <a
-              href="https://discord.gg/WyxjwgDyws"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Discord server
+            or via{" "}
+            <a href="https://redmond.chat" target="_blank" rel="noreferrer">
+              Redmond Chat
             </a>
-            .
+            , the spiritual successor to MSN Chat.
           </p>
         </div>
       </div>
