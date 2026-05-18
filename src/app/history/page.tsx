@@ -105,6 +105,20 @@ export default function HistoryPage() {
           its development servers for Exchange Chat, and merge the users of the
           Comic Chat server into <DeadHost since="1999">irc.msn.com</DeadHost>.
         </p>
+        <p>
+          Comic Chat itself was a Microsoft Research project, conceived and
+          built by <strong>David Kurlander</strong> as part of MSR&rsquo;s
+          Virtual Worlds Group and later carried into Microsoft&rsquo;s
+          Internet Division. The technology &mdash; automatic comic-panel
+          layout driven by user chat &mdash; was first presented at SIGGRAPH
+          &rsquo;96 and shipped with Internet Explorer 3.0 on 13 August 1996.
+          Its signature visual identity, the cast of avatars and the painted
+          backgrounds, was the work of the underground comic artist{" "}
+          <strong>Jim Woodring</strong>. The client was eventually bundled
+          with IE3, IE4 and IE5, Windows 98 and Windows 2000, and was
+          localised into 24 languages before Microsoft retired it with the
+          final 2.5 release in March 1999.
+        </p>
 
         <h2>The beginning of MSN Chat</h2>
         <p>
@@ -161,7 +175,8 @@ export default function HistoryPage() {
           contemplating what they considered to be its marketable future. A
           deserving mention at this point is how Koach came to be a part of
           what became MSN Chat &mdash; as the server which the Comic Chat
-          client used to connect to (<DeadHost since="1996">MIC/chat.msn.com</DeadHost>) was shut down shortly
+          client used to connect to (<DeadHost since="1996">MIC/chat.msn.com</DeadHost>, a contraction
+          of <em>Microsoft Internet Chat</em>) was shut down shortly
           after the demise of the <DeadHost since="1995">chatbeta</DeadHost> server, the users and staff
           transitioned over to <DeadHost since="1999">irc.msn.com</DeadHost> too. Koach was hired as a trainer at
           this point, in order to educate the users and staff on IRC clients
@@ -173,16 +188,16 @@ export default function HistoryPage() {
         <p>
           In late 1999, what the MSN Chat Development Team had been working on
           for a while was announced to the public; <DeadHost since="1999">irc.msn.com</DeadHost> was to be
-          closed, and the all new <DeadHost since="2003">chat.msn.com</DeadHost> was to be opened. The
+          closed, and the all new <DeadHost since="2006">chat.msn.com</DeadHost> was to be opened. The
           differences were significant, both behind the scenes and at front of
           house. It was a move by MSN to try to open up IRC to more than the
           current client-based audience, by allowing people to chat directly
           from their browser with little to no technical knowledge. At first,
           third party clients such as mIRC and Pirch were still able to connect
-          to <DeadHost since="2003">chat.msn.com</DeadHost>; looking back, this was probably to allow people to
+          to <DeadHost since="2006">chat.msn.com</DeadHost>; looking back, this was probably to allow people to
           transition across correctly, because very shortly afterwards the
           &ldquo;GateKeeper&rdquo; and &ldquo;GateKeeperPassport&rdquo; method
-          of authentication was introduced and connections to <DeadHost since="2003">chat.msn.com</DeadHost> via
+          of authentication was introduced and connections to <DeadHost since="2006">chat.msn.com</DeadHost> via
           third party clients were prohibited (though not fully restricted).
           What became known as Web Chat (OCX, Chat Control) had actually
           stemmed from the <DeadHost since="1999">irc.msn.com</DeadHost> days; the MSN Chat Development Team had
@@ -190,6 +205,42 @@ export default function HistoryPage() {
           Celebrity Chats team (Chat Control Versions 1 &ndash; 2), and this
           directly connected to the existing IRC server, with no authentication
           challenges.
+        </p>
+        <p>
+          The Chat Control itself was distributed as an ActiveX COM object,
+          which is what locked the official user experience to Internet
+          Explorer (and, more loosely, to Netscape Navigator 4.x and the
+          MSNTV/WebTV set-top boxes). Under the hood, GateKeeper was a{" "}
+          SASL-based Security Service Provider that authorised non-Passport
+          clients using a randomised session key; GateKeeperPassport extended
+          the same primitive to require valid .NET Passport credentials
+          (Passport being the predecessor of today&rsquo;s Microsoft account).
+          In 2001 Microsoft went a step further and closed off third-party
+          IRC clients entirely, leaving the browser-based Chat Control as the
+          only officially sanctioned way in.
+        </p>
+        <p>
+          The community didn&rsquo;t take that quietly. Robert Lancaster
+          (xsu|c|desn0wmanx) reverse-engineered the GateKeeper challenge and
+          published code that allowed third-party clients to authenticate
+          against MSN&rsquo;s servers, breathing years of additional life
+          into the mIRC and Pirch ecosystem and quietly spawning a small
+          economy of unofficial clients and connector libraries.
+        </p>
+
+        <h2>Categories and the chat room landscape</h2>
+        <p>
+          The defining UX touch of MSN Chat was its categorisation. Rather
+          than presenting a flat list of thousands of rooms, the directory
+          carved them up into broad categories &mdash; Romance, Religion,
+          Lifestyles, age-based groupings (Teen, 20-something, 30-something,
+          40+), regional, music, entertainment, computing, and so on. Each
+          category housed dozens or hundreds of rooms, most of them
+          user-created, and many became durable communities in their own
+          right. For a great many former chatters, the categorisation is the
+          thing they remember most clearly about the experience &mdash;
+          stumbling across the same room every evening, the same regulars,
+          the same arguments.
         </p>
 
         <h2>Behind the Scenes &mdash; MSN Chat staffing</h2>
@@ -303,6 +354,32 @@ export default function HistoryPage() {
           also joined the official channels.
         </p>
 
+        <h2>The end of MSN Chat</h2>
+        <p>
+          On 14 October 2003, citing concerns about online child safety and
+          the difficulty of moderating user-created rooms at scale, Microsoft
+          closed MSN Chat across roughly 28 countries &mdash; effectively
+          ending the free service everywhere except the United States,
+          Canada, Japan and Brazil. In those four markets, the service
+          continued, but only as a subscription tied to a Microsoft Passport
+          account, priced at around twenty dollars a year. The decision was
+          announced as a child-protection measure following high-profile UK
+          news coverage that year, though spam, abuse, and the operational
+          cost of moderating an open service almost certainly played a role.
+        </p>
+        <p>
+          The subscription model never thrived. On 31 August 2006 Microsoft
+          announced that the remaining MSN Chat service would close, and on
+          16 October 2006, at approximately 11:30 AM EST, the{" "}
+          <DeadHost since="2006">chat.msn.com</DeadHost> servers were powered down
+          for the last time. After more than a decade &mdash; counting the
+          chatbeta era &mdash; IRCx at Microsoft, and MSN Chat with it, came
+          to a quiet end. Many of the communities scattered to other
+          networks: some to{" "}
+          <a href="irc://irc.koach.com:6667">irc.koach.com</a>, some to the
+          big public IRC networks, and others simply faded.
+        </p>
+
         <h2>Credits</h2>
         <p>
           <strong>Koach (real name withheld):</strong> Having been with MSN
@@ -313,8 +390,9 @@ export default function HistoryPage() {
         <p>
           <strong>Robert Lancaster:</strong> Known on MSN chat by his alias
           xsu|c|desn0wmanx, he was one of the very first to work out how to
-          bypass the Gatekeeper Authentication challenge introduced in Web
-          Chat.
+          bypass the GateKeeper authentication challenge introduced in Web
+          Chat &mdash; his published work effectively kept third-party clients
+          like mIRC and Pirch alive against MSN Chat for years.
         </p>
         <p>
           <strong>Andrew Gee:</strong> Going by the alias of Bench, his
