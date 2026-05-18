@@ -27,18 +27,18 @@ export default function HomePage() {
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
             <Link
               href="/history"
-              className="inline-flex items-center gap-2 rounded-full border border-[var(--accent)] bg-[var(--accent)] px-5 py-2.5 text-sm font-medium text-white no-underline transition hover:bg-[var(--accent-hover)] hover:border-[var(--accent-hover)] hover:text-white"
+              className="inline-flex items-center gap-2 rounded-full border border-[var(--accent)] bg-[var(--accent)] px-5 py-2.5 text-sm font-medium text-[var(--on-accent)] no-underline transition hover:bg-[var(--accent-hover)] hover:border-[var(--accent-hover)] hover:text-[var(--on-accent)]"
             >
               Read the MSN Chat history
               <span aria-hidden>→</span>
             </Link>
             <a
-              href="https://discord.gg/WyxjwgDyws"
+              href="https://redmond.chat"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface)]/70 px-5 py-2.5 text-sm font-medium text-[var(--foreground)] no-underline backdrop-blur transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
             >
-              Join the Discord
+              Join Redmond Chat
             </a>
           </div>
         </div>
@@ -73,10 +73,10 @@ export default function HomePage() {
           />
           <Card
             eyebrow="Community"
-            title="Discord Server"
-            description="A small Discord where a fair number of folks from the early MSN Chat days can be found."
-            href="https://discord.gg/WyxjwgDyws"
-            cta="Join the Discord →"
+            title="Redmond Chat"
+            description="A modern, MSN-Chat-style community: works in every modern browser, secure SSL/IRC, no plugins required."
+            href="https://redmond.chat"
+            cta="Join Redmond Chat today →"
             external
           />
         </div>

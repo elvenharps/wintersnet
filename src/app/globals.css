@@ -12,6 +12,7 @@
   --border: #d2dcd7;
   --accent: #2f5d4f;
   --accent-hover: #3d7363;
+  --on-accent: #ffffff;
   --mist-1: rgba(255, 255, 255, 0.6);
   --mist-2: rgba(220, 232, 228, 0.5);
   --aurora: radial-gradient(
@@ -40,6 +41,7 @@
   --border: #1f2d2a;
   --accent: #7fb8a4;
   --accent-hover: #a3cdbb;
+  --on-accent: #0a1413;
   --mist-1: rgba(20, 32, 30, 0.55);
   --mist-2: rgba(10, 20, 19, 0.7);
   --aurora: radial-gradient(
@@ -120,6 +122,12 @@ a {
 a:hover {
   color: var(--accent-hover);
   text-decoration: underline;
+}
+
+/* Opt-out: applying `.no-underline` keeps it gone even on hover */
+.no-underline,
+.no-underline:hover {
+  text-decoration: none;
 }
 
 .serif {

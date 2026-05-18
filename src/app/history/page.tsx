@@ -20,6 +20,32 @@ export const metadata: Metadata = {
 export default function HistoryPage() {
   return (
     <article>
+      <aside className="border-b border-[var(--accent)]/30 bg-[var(--surface-muted)]">
+        <div className="mx-auto flex max-w-4xl flex-col gap-3 px-6 py-4 text-sm sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex items-start gap-3">
+            <span
+              aria-hidden="true"
+              className="mt-0.5 inline-flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent)] text-[var(--on-accent)] text-xs font-bold"
+            >
+              ✦
+            </span>
+            <p className="leading-relaxed text-[var(--foreground)]">
+              <strong className="font-semibold">New &mdash; Redmond Chat:</strong>{" "}
+              the spiritual successor to MSN Chat. Modern, browser-native, no
+              plugins. Secure IRC over SSL. Open to everyone.
+            </p>
+          </div>
+          <a
+            href="https://redmond.chat"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex flex-shrink-0 items-center gap-2 rounded-full border border-[var(--accent)] bg-[var(--accent)] px-4 py-1.5 text-sm font-medium text-[var(--on-accent)] no-underline transition hover:bg-[var(--accent-hover)] hover:border-[var(--accent-hover)] hover:text-[var(--on-accent)]"
+          >
+            Join Redmond Chat <span aria-hidden>→</span>
+          </a>
+        </div>
+      </aside>
+
       <header className="relative isolate overflow-hidden border-b border-[var(--border)]">
         <div className="absolute inset-0 -z-10">
           <ForestSilhouette className="absolute bottom-0 left-0 w-full h-[140px] opacity-80" />
@@ -40,7 +66,8 @@ export default function HistoryPage() {
 
       <div className="prose-article mx-auto px-6 py-14">
         <p className="lead">
-          <strong>Note about the author:</strong> At the (very) young age of 11,
+          <strong>Note about the author:</strong>{" "}
+          At the (very) young age of 11,
           I stumbled upon the concept of IRC, quite entirely by mistake. I was
           an active participant on MSN Chat during the years of &rsquo;00 &ndash;
           &rsquo;06, and I don&rsquo;t at all claim to know the entire story
@@ -300,16 +327,7 @@ export default function HistoryPage() {
           deal during that time. Now working for Microsoft, I was able to
           fact-check this article and make some needed adjustments. It can now
           be safely declared that this article is as accurate as possible
-          pertaining to MSN Chat. I can be contacted on a private server
-          created with Discord{" "}
-          <a
-            href="https://discord.gg/WyxjwgDyws"
-            target="_blank"
-            rel="noreferrer"
-          >
-            here
-          </a>
-          .
+          pertaining to MSN Chat.
         </p>
 
         <div className="mt-16 border-t border-[var(--border)] pt-8 text-center text-sm text-[var(--muted)]">
