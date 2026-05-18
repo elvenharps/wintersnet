@@ -6,6 +6,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: `${base}/`, lastModified, changeFrequency: "yearly", priority: 1 },
     { url: `${base}/about`, lastModified, changeFrequency: "yearly", priority: 0.6 },
+    { url: `${base}/projects`, lastModified, changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/history`, lastModified, changeFrequency: "yearly", priority: 0.9 },
   ];
 }

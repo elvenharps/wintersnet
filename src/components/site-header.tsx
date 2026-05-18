@@ -15,6 +15,12 @@ export function SiteHeader() {
         </Link>
         <nav className="flex items-center gap-6 text-sm">
           <Link
+            href="/projects"
+            className="text-[var(--muted)] no-underline hover:text-[var(--foreground)]"
+          >
+            Projects
+          </Link>
+          <Link
             href="/history"
             className="text-[var(--muted)] no-underline hover:text-[var(--foreground)]"
           >
