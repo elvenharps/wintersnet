@@ -2,26 +2,60 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* PNW palette — misty forest morning */
 :root {
-  --background: #fafaf9;
+  --background: #eef2f0;
   --surface: #ffffff;
-  --surface-muted: #f4f4f2;
-  --foreground: #1a1a1a;
-  --muted: #525252;
-  --border: #e5e5e3;
-  --accent: #2563eb;
-  --accent-hover: #1d4ed8;
+  --surface-muted: #e5ebe8;
+  --foreground: #1c2a26;
+  --muted: #56685f;
+  --border: #d2dcd7;
+  --accent: #2f5d4f;
+  --accent-hover: #3d7363;
+  --mist-1: rgba(255, 255, 255, 0.6);
+  --mist-2: rgba(220, 232, 228, 0.5);
+  --aurora: radial-gradient(
+      ellipse 80% 50% at 50% -10%,
+      rgba(143, 188, 168, 0.18),
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 60% 40% at 20% 110%,
+      rgba(120, 156, 140, 0.12),
+      transparent 60%
+    );
+  --rain-color: rgba(60, 80, 75, 0.35);
+  --tree-back: #b9c6c0;
+  --tree-mid: #7e9388;
+  --tree-front: #344f44;
 }
 
+/* Winter forest night */
 .dark {
-  --background: #0a0a0a;
-  --surface: #111111;
-  --surface-muted: #161616;
-  --foreground: #ededed;
-  --muted: #a3a3a3;
-  --border: #262626;
-  --accent: #60a5fa;
-  --accent-hover: #93c5fd;
+  --background: #0a1413;
+  --surface: #101b19;
+  --surface-muted: #15211f;
+  --foreground: #e6efe9;
+  --muted: #8aa39a;
+  --border: #1f2d2a;
+  --accent: #7fb8a4;
+  --accent-hover: #a3cdbb;
+  --mist-1: rgba(20, 32, 30, 0.55);
+  --mist-2: rgba(10, 20, 19, 0.7);
+  --aurora: radial-gradient(
+      ellipse 80% 50% at 50% -10%,
+      rgba(127, 184, 164, 0.12),
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 60% 40% at 20% 110%,
+      rgba(70, 110, 95, 0.18),
+      transparent 60%
+    );
+  --rain-color: rgba(200, 220, 215, 0.35);
+  --tree-back: #14201e;
+  --tree-mid: #0e1816;
+  --tree-front: #050b0a;
 }
 
 @theme inline {
@@ -34,7 +68,7 @@
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-fraunces);
 }
 
 html {
@@ -51,6 +85,30 @@ body {
   font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  position: relative;
+}
+
+/* Atmosphere layer — sits behind everything site-wide */
+.atmosphere {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: var(--aurora);
+}
+
+.atmosphere::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.5'/></svg>");
+  opacity: 0.04;
+  mix-blend-mode: multiply;
+}
+
+.dark .atmosphere::after {
+  mix-blend-mode: screen;
+  opacity: 0.05;
 }
 
 a {
@@ -64,28 +122,96 @@ a:hover {
   text-decoration: underline;
 }
 
+.serif {
+  font-family: var(--font-serif), Georgia, "Times New Roman", serif;
+  font-optical-sizing: auto;
+  letter-spacing: -0.015em;
+}
+
+/* Rain animation — diagonal falling streaks */
+.rain {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.rain span {
+  position: absolute;
+  top: -10%;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--rain-color),
+    transparent
+  );
+  transform: rotate(12deg);
+  animation: rain-fall linear infinite;
+}
+
+@keyframes rain-fall {
+  0% {
+    transform: translate3d(0, -10vh, 0) rotate(12deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(-30px, 120vh, 0) rotate(12deg);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rain span {
+    animation: none;
+    opacity: 0.15;
+  }
+}
+
+/* Mist gradient — soft fade overlay */
+.mist {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    var(--mist-1) 0%,
+    transparent 30%,
+    transparent 60%,
+    var(--mist-2) 100%
+  );
+}
+
+/* Article styling for long-form content */
 .prose-article {
   max-width: 70ch;
-  line-height: 1.75;
+  line-height: 1.78;
 }
 
 .prose-article h2,
 .prose-article h3 {
-  margin-top: 2.5rem;
+  font-family: var(--font-serif), Georgia, "Times New Roman", serif;
+  margin-top: 2.75rem;
   margin-bottom: 1rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-weight: 500;
+  letter-spacing: -0.015em;
   color: var(--foreground);
 }
 
 .prose-article h2 {
-  font-size: 1.5rem;
+  font-size: 1.65rem;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid var(--border);
 }
 
 .prose-article h3 {
-  font-size: 1.25rem;
+  font-size: 1.3rem;
 }
 
 .prose-article p {
@@ -94,11 +220,11 @@ a:hover {
 }
 
 .prose-article p.lead {
-  font-size: 1.05rem;
+  font-size: 1.025rem;
   color: var(--muted);
   font-style: italic;
-  padding: 1rem 1.25rem;
-  border-left: 3px solid var(--border);
+  padding: 1.1rem 1.35rem;
+  border-left: 3px solid var(--accent);
   background: var(--surface-muted);
   border-radius: 0 0.375rem 0.375rem 0;
 }

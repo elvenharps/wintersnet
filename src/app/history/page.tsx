@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ForestSilhouette } from "@/components/forest-silhouette";
 
 export const metadata: Metadata = {
   title: "History of MSN Chat",
@@ -18,20 +19,26 @@ export const metadata: Metadata = {
 
 export default function HistoryPage() {
   return (
-    <article className="mx-auto px-6 py-16 sm:py-20">
-      <header className="mx-auto max-w-3xl text-center">
-        <p className="text-sm font-medium uppercase tracking-widest text-[var(--muted)]">
-          Long-form
-        </p>
-        <h1 className="mt-3 text-4xl sm:text-5xl font-semibold tracking-tight">
-          History of MSN Chat
-        </h1>
-        <p className="mt-4 text-[var(--muted)]">
-          A reference point for the years to come.
-        </p>
+    <article>
+      <header className="relative isolate overflow-hidden border-b border-[var(--border)]">
+        <div className="absolute inset-0 -z-10">
+          <ForestSilhouette className="absolute bottom-0 left-0 w-full h-[140px] opacity-80" />
+          <div className="mist" />
+        </div>
+        <div className="mx-auto max-w-3xl px-6 pt-16 pb-28 text-center">
+          <p className="text-xs font-medium uppercase tracking-[0.25em] text-[var(--muted)]">
+            Long-form · Archival
+          </p>
+          <h1 className="serif mt-4 text-4xl sm:text-5xl font-medium tracking-tight">
+            History of MSN Chat
+          </h1>
+          <p className="mt-4 text-[var(--muted)] italic">
+            A reference point for the years to come.
+          </p>
+        </div>
       </header>
 
-      <div className="prose-article mx-auto mt-12">
+      <div className="prose-article mx-auto px-6 py-14">
         <p className="lead">
           <strong>Note about the author:</strong> At the (very) young age of 11,
           I stumbled upon the concept of IRC, quite entirely by mistake. I was

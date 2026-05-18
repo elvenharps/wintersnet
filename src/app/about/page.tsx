@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ForestSilhouette } from "@/components/forest-silhouette";
 
 export const metadata: Metadata = {
   title: "About",
@@ -8,28 +9,46 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto max-w-2xl px-6 py-16 sm:py-24">
-      <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight">
-        About
-      </h1>
-      <div className="mt-8 space-y-5 text-[var(--foreground)] leading-relaxed">
-        <p>
-          A messaging and systems engineer by trade, Nathan currently works full
-          time for Microsoft as a Service Engineer and Product Manager for
-          Exchange Online. With over 15 years cumulative experience within
-          Information Services, he uses the wealth of his experience to ensure
-          WintersNet continues to exist.
-        </p>
-        <p className="text-[var(--muted)]">
-          Nathan can be contacted via e-mail at{" "}
-          <a href="mailto:nathan@wintersnet.net">nathan@wintersnet.net</a>, or
-          on the WintersNet{" "}
-          <a href="https://discord.gg/WyxjwgDyws" target="_blank" rel="noreferrer">
-            Discord server
-          </a>
-          .
-        </p>
+    <>
+      <header className="relative isolate overflow-hidden border-b border-[var(--border)]">
+        <div className="absolute inset-0 -z-10">
+          <ForestSilhouette className="absolute bottom-0 left-0 w-full h-[120px] opacity-80" />
+          <div className="mist" />
+        </div>
+        <div className="mx-auto max-w-2xl px-6 pt-16 pb-24 text-center">
+          <p className="text-xs font-medium uppercase tracking-[0.25em] text-[var(--muted)]">
+            About
+          </p>
+          <h1 className="serif mt-4 text-4xl sm:text-5xl font-medium tracking-tight">
+            Nathan Scott
+          </h1>
+        </div>
+      </header>
+
+      <div className="mx-auto max-w-2xl px-6 py-14">
+        <div className="space-y-5 text-[var(--foreground)] leading-relaxed text-lg">
+          <p>
+            A messaging and systems engineer by trade, Nathan currently works
+            full time for Microsoft as a Service Engineer and Product Manager
+            for Exchange Online. With over 15 years cumulative experience
+            within Information Services, he uses the wealth of his experience
+            to ensure WintersNet continues to exist.
+          </p>
+          <p className="text-[var(--muted)]">
+            Nathan can be contacted via e-mail at{" "}
+            <a href="mailto:nathan@wintersnet.net">nathan@wintersnet.net</a>,
+            or on the WintersNet{" "}
+            <a
+              href="https://discord.gg/WyxjwgDyws"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Discord server
+            </a>
+            .
+          </p>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
