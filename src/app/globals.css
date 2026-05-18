@@ -285,3 +285,64 @@ body {
   color: var(--foreground);
   white-space: nowrap;
 }
+
+/* Sticky-header-aware anchor scrolling. Header is h-14 = 56px. */
+.prose-article h2[id],
+.prose-article h3[id] {
+  scroll-margin-top: 5rem;
+}
+
+.prose-article .toc {
+  margin: 2.5rem 0 3rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  background: var(--surface-muted);
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.prose-article .toc-label {
+  font-family: var(--font-serif), Georgia, "Times New Roman", serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 0.65rem;
+  padding: 0;
+  border: 0;
+}
+
+.prose-article .toc ol {
+  margin: 0;
+  padding: 0;
+  list-style: decimal inside;
+  columns: 1;
+  column-gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .prose-article .toc ol {
+    columns: 2;
+  }
+}
+
+.prose-article .toc li {
+  margin: 0;
+  padding: 0.15rem 0;
+  break-inside: avoid;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.prose-article .toc li::marker {
+  color: var(--muted);
+}
+
+.prose-article .toc a {
+  color: var(--foreground);
+}
+
+.prose-article .toc a:hover {
+  color: var(--accent);
+}

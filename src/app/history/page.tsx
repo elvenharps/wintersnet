@@ -91,7 +91,25 @@ export default function HistoryPage() {
           serves as a reference point for the years to come.
         </p>
 
-        <h2>An introduction and mention of Comic Chat</h2>
+        <nav aria-label="Table of contents" className="toc">
+          <p className="toc-label">Contents</p>
+          <ol>
+            <li><a href="#comic-chat">An introduction and mention of Comic Chat</a></li>
+            <li><a href="#beginning">The beginning of MSN Chat</a></li>
+            <li><a href="#merger">The first great merger: Comic Chat and MSN Chat</a></li>
+            <li><a href="#web-chat">The era of Web Chat</a></li>
+            <li><a href="#gatekeeper">GateKeeper and GateKeeperPassport</a></li>
+            <li><a href="#categories">Categories and the chat room landscape</a></li>
+            <li><a href="#staffing">Behind the Scenes &mdash; MSN Chat staffing</a></li>
+            <li><a href="#admin-tools">MSN Chat &mdash; Admin Tools</a></li>
+            <li><a href="#architecture">Chat Architecture</a></li>
+            <li><a href="#9msn">9MSN Chat</a></li>
+            <li><a href="#end">The end of MSN Chat</a></li>
+            <li><a href="#credits">Credits</a></li>
+          </ol>
+        </nav>
+
+        <h2 id="comic-chat">An introduction and mention of Comic Chat</h2>
         <p>
           While it would be inaccurate to stipulate that the origins of MSN Chat
           are directly correlated with Comic Chat, their respective histories
@@ -120,7 +138,7 @@ export default function HistoryPage() {
           final 2.5 release in March 1999.
         </p>
 
-        <h2>The beginning of MSN Chat</h2>
+        <h2 id="beginning">The beginning of MSN Chat</h2>
         <p>
           In order to truly understand how MSN Chat came to be, one has to look
           as far back as 1994. A Microsoft-sponsored project was launched,
@@ -160,7 +178,7 @@ export default function HistoryPage() {
           incorporated into their software.
         </p>
 
-        <h2>The first great merger: Comic Chat and MSN Chat</h2>
+        <h2 id="merger">The first great merger: Comic Chat and MSN Chat</h2>
         <p>
           Microsoft soon began to realize that running and maintaining three
           separate environments was somewhat fruitless, and required too much
@@ -184,7 +202,7 @@ export default function HistoryPage() {
           Chat.
         </p>
 
-        <h2>The era of Web Chat</h2>
+        <h2 id="web-chat">The era of Web Chat</h2>
         <p>
           In late 1999, what the MSN Chat Development Team had been working on
           for a while was announced to the public; <DeadHost since="1999">irc.msn.com</DeadHost> was to be
@@ -224,7 +242,7 @@ export default function HistoryPage() {
           economy of unofficial clients and connector libraries.
         </p>
 
-        <h2>GateKeeper and GateKeeperPassport</h2>
+        <h2 id="gatekeeper">GateKeeper and GateKeeperPassport</h2>
         <p>
           Authentication in MSN Chat&rsquo;s Web Chat era was layered on top
           of the IRCx <code>AUTH</code> command (itself a wrapper around{" "}
@@ -236,7 +254,8 @@ export default function HistoryPage() {
           but they corresponded to two very different kinds of user.
         </p>
         <p>
-          <strong>GateKeeper</strong> was the guest path. A client could
+          <strong>GateKeeper</strong>{" "}
+          was the guest path. A client could
           connect, run the SASL handshake without supplying any Passport
           credentials, and end up in MSN Chat under an auto-assigned
           nickname of the form <code>Guest_</code> followed by a numeric
@@ -252,7 +271,8 @@ export default function HistoryPage() {
           mitigation work was aimed at it.
         </p>
         <p>
-          <strong>GateKeeperPassport</strong> was the registered path. The
+          <strong>GateKeeperPassport</strong>{" "}
+          was the registered path. The
           same SASL handshake ran, but the client first obtained a ticket
           from the .NET Passport network (the precursor to today&rsquo;s
           Microsoft account) and bound that ticket into the authentication
@@ -278,7 +298,7 @@ export default function HistoryPage() {
           third-party clients overwhelmingly stuck to the guest lane.
         </p>
 
-        <h2>Categories and the chat room landscape</h2>
+        <h2 id="categories">Categories and the chat room landscape</h2>
         <p>
           The defining UX touch of MSN Chat was its categorisation. Rather
           than presenting a flat list of thousands of rooms, the directory
@@ -293,7 +313,7 @@ export default function HistoryPage() {
           the same arguments.
         </p>
 
-        <h2>Behind the Scenes &mdash; MSN Chat staffing</h2>
+        <h2 id="staffing">Behind the Scenes &mdash; MSN Chat staffing</h2>
         <p>
           Almost as soon as the transition was made to the Web Chat
           environment, and associated new servers, MSN began to start the
@@ -328,7 +348,7 @@ export default function HistoryPage() {
           market, and so it remained until closure.
         </p>
 
-        <h2>MSN Chat &mdash; Admin Tools</h2>
+        <h2 id="admin-tools">MSN Chat &mdash; Admin Tools</h2>
         <p>
           There were multiple admin tools developed over the years, and this
           article is only going to cover one of them, developed by Microsoft
@@ -362,7 +382,7 @@ export default function HistoryPage() {
           hindrance.
         </p>
 
-        <h2>Chat Architecture</h2>
+        <h2 id="architecture">Chat Architecture</h2>
         <p>
           <strong>Directory Server</strong> &mdash; known colloquially to users
           as the FINDS server, the Directory Server provided functionality that
@@ -379,7 +399,7 @@ export default function HistoryPage() {
           with slight exceptions being allowed for Event rooms.
         </p>
 
-        <h2>9MSN Chat</h2>
+        <h2 id="9msn">9MSN Chat</h2>
         <p>
           Whilst 9MSN, in the same way as the International Chats, used the
           same chat servers as the US Market, it was run entirely separately
@@ -404,7 +424,7 @@ export default function HistoryPage() {
           also joined the official channels.
         </p>
 
-        <h2>The end of MSN Chat</h2>
+        <h2 id="end">The end of MSN Chat</h2>
         <p>
           On 14 October 2003, citing concerns about online child safety and
           the difficulty of moderating user-created rooms at scale, Microsoft
@@ -430,7 +450,7 @@ export default function HistoryPage() {
           big public IRC networks, and others simply faded.
         </p>
 
-        <h2>Credits</h2>
+        <h2 id="credits">Credits</h2>
         <p>
           <strong>Koach (real name withheld):</strong> Having been with MSN
           Chat from the very start, Koach was integral to the accuracy of this
