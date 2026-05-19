@@ -70,7 +70,7 @@
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
   --color-on-accent: var(--on-accent);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-inter);
   --font-serif: var(--font-fraunces);
 }
 
