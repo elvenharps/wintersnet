@@ -7,7 +7,7 @@ form or another since 2003.
 
 - **Framework:** Next.js 16 (App Router, TypeScript, React 19)
 - **Styling:** Tailwind CSS v4 with a custom theme + dark/light toggle
-- **Hosting:** Railway (Docker, standalone Next.js build)
+- **Hosting:** Hetzner + [Coolify](https://coolify.io) (Docker, standalone Next.js build) — migrated off Railway in May 2026, see [`../IRCx-Server/MIGRATE.md`](../IRCx-Server/MIGRATE.md) for the cross-service runbook
 - **Auto-deploy:** Pushes to `main` deploy automatically.
 
 ## Pages
@@ -48,5 +48,5 @@ docker run -p 3000:3000 wintersnet
 
 ## Deploying
 
-The repo is connected to Railway. Pushes to `main` trigger an automatic
-container build and deploy via the included `Dockerfile`.
+The repo is connected to Coolify (Hetzner). Pushes to `main` trigger an
+automatic container build and deploy via the included `Dockerfile`.
