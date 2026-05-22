@@ -105,6 +105,7 @@ export default function HistoryPage() {
             <li><a href="#architecture">Chat Architecture</a></li>
             <li><a href="#9msn">9MSN Chat</a></li>
             <li><a href="#end">The end of MSN Chat</a></li>
+            <li><a href="#further-reading">Further reading &mdash; the IRCx Reference</a></li>
             <li><a href="#credits">Credits</a></li>
           </ol>
         </nav>
@@ -231,7 +232,20 @@ export default function HistoryPage() {
           MSNTV/WebTV set-top boxes). In 2001 Microsoft went a step further
           and closed off third-party IRC clients entirely, leaving the
           browser-based Chat Control as the only officially sanctioned way
-          in.
+          in. One architectural consequence worth flagging: each Chat Control
+          instance scoped its TCP session to a single room &mdash; switching
+          rooms in the UI quietly tore down and re-established the underlying
+          connection. That one-room-per-connection model was a real
+          departure from RFC 1459 IRC and quietly shaped many of MSN
+          Chat&rsquo;s protocol-level peculiarities (see the{" "}
+          <a
+            href="https://redmond.chat/ircx/msn-flavor#the-one-room-per-connection-model"
+            target="_blank"
+            rel="noreferrer"
+          >
+            IRCx Reference
+          </a>{" "}
+          for the technical consequences).
         </p>
         <p>
           The community didn&rsquo;t take that quietly. Robert Lancaster
@@ -246,12 +260,17 @@ export default function HistoryPage() {
         <p>
           Authentication in MSN Chat&rsquo;s Web Chat era was layered on top
           of the IRCx <code>AUTH</code> command (itself a wrapper around{" "}
-          SASL, the Simple Authentication and Security Layer). Microsoft
-          registered two SASL mechanisms with their own servers and shipped
-          both as Security Support Providers under SSPI, the same framework
-          NT used for Kerberos and NTLM. The two mechanisms looked very
-          similar on the wire and almost identical at the protocol layer,
-          but they corresponded to two very different kinds of user.
+          SASL, the Simple Authentication and Security Layer, as specified
+          across the Pfenning IRCx Internet Drafts &mdash; <code>00</code>,{" "}
+          <code>01</code>, <code>02</code>, and <code>04</code> &mdash;
+          publicly archived in the IETF datatracker). Microsoft registered
+          two SASL mechanisms with their own servers, advertised on the
+          wire as <code>GateKeeper</code> and <code>GateKeeperPassport</code>,
+          and shipped both as Security Support Providers under SSPI &mdash;
+          the same framework NT used for Kerberos and NTLM. The two
+          mechanisms looked very similar on the wire and almost identical at
+          the protocol layer, but they corresponded to two very different
+          kinds of user.
         </p>
         <p>
           <strong>GateKeeper</strong>{" "}
@@ -296,6 +315,22 @@ export default function HistoryPage() {
           in the same way: forging the Passport ticket itself was a much
           larger problem than reproducing a single client-side response, so
           third-party clients overwhelmingly stuck to the guest lane.
+        </p>
+        <p>
+          For the protocol-level mechanics &mdash; the <code>AUTH</code>{" "}
+          command&rsquo;s <code>I</code>/<code>S</code>/<code>*</code>{" "}
+          sequence codes, the byte-level layout of the GateKeeper challenge
+          frame, the numerics the server returns at each stage, and the
+          ANON path that lets a client skip auth entirely &mdash; see the
+          dedicated{" "}
+          <a
+            href="https://redmond.chat/ircx/auth"
+            target="_blank"
+            rel="noreferrer"
+          >
+            IRCx Auth reference
+          </a>{" "}
+          at redmond.chat.
         </p>
 
         <h2 id="categories">Categories and the chat room landscape</h2>
@@ -384,6 +419,11 @@ export default function HistoryPage() {
 
         <h2 id="architecture">Chat Architecture</h2>
         <p>
+          MSN Chat&rsquo;s backend was structured around at least two
+          distinct service tiers, with a clean division of responsibility
+          between them.
+        </p>
+        <p>
           <strong>Directory Server</strong> &mdash; known colloquially to users
           as the FINDS server, the Directory Server provided functionality that
           allowed clients to look up the location of a chat room or user and
@@ -397,6 +437,41 @@ export default function HistoryPage() {
           chatters within an individual room were connected to the same Chat
           Server. Chatters could not join the room from a different server,
           with slight exceptions being allowed for Event rooms.
+        </p>
+        <p>
+          Several MSN Chat behaviours follow naturally from this room-as-a-
+          server-side-locality constraint. The one-room-per-connection model
+          (see the Web Chat section above) made architectural sense, because
+          a connection that was &ldquo;in a room&rdquo; was by definition
+          pinned to a particular Chat Server &mdash; switching rooms meant
+          potentially switching server, which was cleaner as a fresh socket
+          than as an in-band hand-off. The <code>CLONEABLE</code> mode,
+          which spawned overflow rooms like <code>%#TheLobby2</code> and{" "}
+          <code>%#TheLobby3</code> when a popular room filled, was in
+          practice a horizontal-scale primitive: it let the network split a
+          popular room&rsquo;s load across additional Chat Server capacity
+          without anyone in the original room seeing a disruption. And the
+          classic IRC problem of synchronising channel state across a mesh
+          of peer servers (netsplits, mode collisions, timestamp tie-breaks)
+          simply did not apply &mdash; no room ever spanned more than one
+          Chat Server, so the Directory tier handled &ldquo;where to send
+          this client&rdquo; and the Chat tier handled &ldquo;what&rsquo;s
+          happening inside one room,&rdquo; and neither layer needed to
+          gossip with peers about live room state.
+        </p>
+        <p>
+          For the protocol-level treatment &mdash; how this topology shows
+          up in <code>JOIN</code>, <code>CLONE</code>/<code>CLONEABLE</code>,
+          the per-room ownership model, and the channel-mode surface &mdash;
+          see{" "}
+          <a
+            href="https://redmond.chat/ircx/msn-flavor#backend-topology"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Backend topology
+          </a>{" "}
+          in the IRCx Reference at redmond.chat.
         </p>
 
         <h2 id="9msn">9MSN Chat</h2>
@@ -447,7 +522,109 @@ export default function HistoryPage() {
           to a quiet end. Many of the communities scattered to other
           networks: some to{" "}
           <a href="irc://irc.koach.com:6667">irc.koach.com</a>, some to the
-          big public IRC networks, and others simply faded.
+          big public IRC networks, and others simply faded. The IRCx
+          Internet Drafts themselves &mdash; Pfenning <code>00</code>,{" "}
+          <code>01</code>, <code>02</code>, and <code>04</code> &mdash;
+          never advanced through the IETF process, but remain publicly
+          archived at the IETF datatracker for anyone wanting to read the
+          source material directly.
+        </p>
+
+        <h2 id="further-reading">Further reading &mdash; the IRCx Reference</h2>
+        <p>
+          This article is the human-narrative companion to a separate,
+          deeper resource that documents the IRCx protocol itself at the
+          wire level: the{" "}
+          <a
+            href="https://redmond.chat/ircx"
+            target="_blank"
+            rel="noreferrer"
+          >
+            IRCx Reference at redmond.chat
+          </a>
+          . Where this page tells the story of MSN Chat, the Reference
+          unpacks the protocol &mdash; the verbs, the numerics, the modes,
+          the auth handshake, and the MSN-specific extensions. Together
+          they form a fairly complete public record. The Reference&rsquo;s
+          seven sections are:
+        </p>
+        <ul>
+          <li>
+            <a
+              href="https://redmond.chat/ircx/overview"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Overview
+            </a>{" "}
+            &mdash; what IRCx tried to standardise, and which of those
+            ideas quietly leaked back into modern IRC.
+          </li>
+          <li>
+            <a
+              href="https://redmond.chat/ircx/protocol"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Protocol
+            </a>{" "}
+            &mdash; the wire format, the five connection phases, and the
+            complete numeric catalogue.
+          </li>
+          <li>
+            <a
+              href="https://redmond.chat/ircx/auth"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Auth
+            </a>{" "}
+            &mdash; the <code>AUTH</code> command, the SSPI/SASL package
+            model, GateKeeper and GateKeeperPassport, and the byte-level
+            GKSSP frame format.
+          </li>
+          <li>
+            <a
+              href="https://redmond.chat/ircx/channels"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Channels
+            </a>{" "}
+            &mdash; the three-tier access model, every channel mode, every
+            channel property, and the <code>ACCESS</code> verb.
+          </li>
+          <li>
+            <a
+              href="https://redmond.chat/ircx/msn-flavor"
+              target="_blank"
+              rel="noreferrer"
+            >
+              MSN flavour
+            </a>{" "}
+            &mdash; everything period MSN Chat did differently from the
+            draft, including the backend topology described above.
+          </li>
+          <li>
+            <a
+              href="https://redmond.chat/ircx/reading-the-drafts"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Reading the drafts
+            </a>{" "}
+            &mdash; a critical reading of the Pfenning drafts: where the
+            spec is ambiguous, what time has vindicated, and what should
+            quietly stay buried.
+          </li>
+        </ul>
+        <p className="text-sm text-[var(--muted)]">
+          <em>
+            This page was sharpened in May 2026 with cross-references to
+            the IRCx Reference. The narrative content predates that update
+            by many years; only inline links and the Architecture section
+            expansion are new.
+          </em>
         </p>
 
         <h2 id="credits">Credits</h2>
