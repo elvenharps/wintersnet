@@ -126,7 +126,7 @@ export default function HistoryPage() {
         </p>
         <p>
           Comic Chat itself was a Microsoft Research project, conceived and
-          built by <strong>David Kurlander</strong> as part of MSR&rsquo;s
+          built by <strong>David Kurlander</strong>{" "}as part of MSR&rsquo;s
           Virtual Worlds Group and later carried into Microsoft&rsquo;s
           Internet Division. The technology &mdash; automatic comic-panel
           layout driven by user chat &mdash; was first presented at SIGGRAPH
@@ -635,7 +635,7 @@ export default function HistoryPage() {
           <a href="irc://irc.koach.com:6667">irc.koach.com</a>.
         </p>
         <p>
-          <strong>Robert Lancaster:</strong> Known on MSN chat by his alias
+          <strong>Robert Lancaster:</strong>{" "}Known on MSN chat by his alias
           xsu|c|desn0wmanx, he was one of the very first to work out how to
           bypass the GateKeeper authentication challenge introduced in Web
           Chat &mdash; his published work effectively kept third-party clients
