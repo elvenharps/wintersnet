@@ -4,7 +4,7 @@ import { ForestSilhouette } from "@/components/forest-silhouette";
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "Active projects by Nathan Scott — Redmond Chat (the spiritual successor to MSN Chat) and Evaluate My Portfolio (AI-powered investment analysis).",
+    "Active projects by Nathan Scott — Flutterby Chat (the spiritual successor to MSN Chat) and Evaluate My Portfolio (AI-powered investment analysis).",
 };
 
 type Project = {
@@ -18,7 +18,7 @@ type Project = {
 
 const projects: Project[] = [
   {
-    name: "Redmond Chat",
+    name: "Flutterby Chat",
     tagline: "MSN Chat, reborn.",
     href: "https://flutterby.chat",
     description:

@@ -39,7 +39,7 @@ export default function AboutPage() {
             <a href="mailto:nathan@wintersnet.net">nathan@wintersnet.net</a>,
             or via{" "}
             <a href="https://flutterby.chat" target="_blank" rel="noreferrer">
-              Redmond Chat
+              Flutterby Chat
             </a>
             , the spiritual successor to MSN Chat.
           </p>

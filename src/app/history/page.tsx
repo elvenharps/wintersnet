@@ -31,7 +31,7 @@ export default function HistoryPage() {
               ✦
             </span>
             <p className="leading-relaxed text-[var(--foreground)]">
-              <strong className="font-semibold">New &mdash; Redmond Chat:</strong>{" "}
+              <strong className="font-semibold">New &mdash; Flutterby Chat:</strong>{" "}
               the spiritual successor to MSN Chat. Modern, browser-native, no
               plugins. Secure IRC over SSL. Open to everyone.
             </p>
@@ -42,7 +42,7 @@ export default function HistoryPage() {
             rel="noreferrer"
             className="inline-flex flex-shrink-0 items-center gap-2 rounded-full border border-[var(--accent)] bg-[var(--accent)] px-4 py-1.5 text-sm font-medium text-on-accent no-underline transition hover:bg-[var(--accent-hover)] hover:border-[var(--accent-hover)] hover:text-on-accent"
           >
-            Join Redmond Chat <span aria-hidden>→</span>
+            Join Flutterby Chat <span aria-hidden>→</span>
           </a>
         </div>
       </aside>
