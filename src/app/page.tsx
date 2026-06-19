@@ -47,19 +47,15 @@ export default function HomePage() {
       <section className="mx-auto max-w-3xl px-6 pb-20 -mt-10 relative z-10">
         <div className="rounded-xl border border-[var(--border)] bg-[var(--surface)] p-7 sm:p-9 shadow-sm">
           <p className="text-base sm:text-lg leading-relaxed text-[var(--foreground)]">
-            In its present iteration, we provide folks who may not have the
-            means to procure bandwidth en-masse a premium web presence. We
-            partner with several large networks &mdash;{" "}
-            <a href="https://www.microsoft.com" target="_blank" rel="noreferrer">
-              Microsoft
-            </a>{" "}
-            and{" "}
-            <a href="https://www.quadranet.com" target="_blank" rel="noreferrer">
-              QuadraNet
-            </a>{" "}
-            to name but two &mdash; and have servers and facilities spread
-            across the globe. We offer significantly reduced, or in many cases
-            entirely free, bandwidth and infrastructure to those who qualify.
+            These days, WintersNet is my personal corner of the web. It&rsquo;s
+            home to a detailed, fact-checked{" "}
+            <Link href="/history">history of MSN Chat</Link> &mdash; cited by
+            Wikipedia &mdash; along with the <Link href="/projects">projects</Link>{" "}
+            I build and maintain, chief among them{" "}
+            <a href="https://flutterby.chat" target="_blank" rel="noreferrer">
+              Flutterby Chat
+            </a>
+            , a modern reimagining of the MSN Chat community. Have a look around.
           </p>
         </div>
 
