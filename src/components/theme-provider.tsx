@@ -28,9 +28,27 @@ function applyTheme(theme: Theme) {
   const html = document.documentElement;
   if (theme === "dark") html.classList.add("dark");
   else html.classList.remove("dark");
+  forceStyleRecalc();
   try {
     localStorage.setItem("theme", theme);
   } catch {}
+}
+
+// WebKit/Safari sometimes fails to re-resolve CSS custom properties on a large
+// DOM when a class toggles on <html>, leaving stale theme colors until a manual
+// refresh (most visible on the long history page). Briefly hiding the body
+// forces a synchronous, full style recalculation. The display change is
+// reverted within the same frame, so there is no visible flash; scroll position
+// is captured and restored in case the reflow clamps it.
+function forceStyleRecalc() {
+  const body = document.body;
+  if (!body) return;
+  const { scrollX, scrollY } = window;
+  const prevDisplay = body.style.display;
+  body.style.display = "none";
+  void body.offsetHeight;
+  body.style.display = prevDisplay;
+  window.scrollTo(scrollX, scrollY);
 }
 
 const subscribers = new Set<() => void>();
