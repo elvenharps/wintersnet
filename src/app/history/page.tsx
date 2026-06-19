@@ -311,10 +311,18 @@ export default function HistoryPage() {
           loaded chat.msn.com, the keying material and the response routine
           were effectively in everyone&rsquo;s hands. From there it was a
           matter of static analysis &mdash; which is exactly the route
-          Lancaster and others took. GateKeeperPassport was harder to abuse
-          in the same way: forging the Passport ticket itself was a much
-          larger problem than reproducing a single client-side response, so
-          third-party clients overwhelmingly stuck to the guest lane.
+          Lancaster and others took. In practice the GateKeeper challenge was
+          bypassed often. The earliest third-party clients did not even need to
+          reproduce the algorithm: they bridged the real control, loading{" "}
+          <code>msnchat.ocx</code> and driving it to compute the response to
+          each session key while their own code spoke the rest of the protocol.
+          Once the response routine had been fully reverse-engineered, that
+          crutch fell away and clients answered the challenge natively, with no
+          OCX involved at all. GateKeeperPassport raised the bar only modestly:
+          the same challenge-response still had to be satisfied, with the added
+          step of binding a genuine .NET Passport ticket into the exchange, so
+          forging a ticket was never the point &mdash; a client that obtained a
+          real Passport ticket could take the registered lane just as readily.
         </p>
         <p>
           For the protocol-level mechanics &mdash; the <code>AUTH</code>{" "}
