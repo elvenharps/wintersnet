@@ -38,7 +38,7 @@ export default function AboutPage() {
             Nathan can be contacted via e-mail at{" "}
             <a href="mailto:nathan@wintersnet.net">nathan@wintersnet.net</a>,
             or via{" "}
-            <a href="https://redmond.chat" target="_blank" rel="noreferrer">
+            <a href="https://flutterby.chat" target="_blank" rel="noreferrer">
               Redmond Chat
             </a>
             , the spiritual successor to MSN Chat.

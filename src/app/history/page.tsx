@@ -37,7 +37,7 @@ export default function HistoryPage() {
             </p>
           </div>
           <a
-            href="https://redmond.chat"
+            href="https://flutterby.chat"
             target="_blank"
             rel="noreferrer"
             className="inline-flex flex-shrink-0 items-center gap-2 rounded-full border border-[var(--accent)] bg-[var(--accent)] px-4 py-1.5 text-sm font-medium text-on-accent no-underline transition hover:bg-[var(--accent-hover)] hover:border-[var(--accent-hover)] hover:text-on-accent"
@@ -239,7 +239,7 @@ export default function HistoryPage() {
           departure from RFC 1459 IRC and quietly shaped many of MSN
           Chat&rsquo;s protocol-level peculiarities (see the{" "}
           <a
-            href="https://redmond.chat/ircx/msn-flavor#the-one-room-per-connection-model"
+            href="https://flutterby.chat/ircx/msn-flavor#the-one-room-per-connection-model"
             target="_blank"
             rel="noreferrer"
           >
@@ -324,13 +324,13 @@ export default function HistoryPage() {
           ANON path that lets a client skip auth entirely &mdash; see the
           dedicated{" "}
           <a
-            href="https://redmond.chat/ircx/auth"
+            href="https://flutterby.chat/ircx/auth"
             target="_blank"
             rel="noreferrer"
           >
             IRCx Auth reference
           </a>{" "}
-          at redmond.chat.
+          at flutterby.chat.
         </p>
 
         <h2 id="categories">Categories and the chat room landscape</h2>
@@ -465,13 +465,13 @@ export default function HistoryPage() {
           the per-room ownership model, and the channel-mode surface &mdash;
           see{" "}
           <a
-            href="https://redmond.chat/ircx/msn-flavor#backend-topology"
+            href="https://flutterby.chat/ircx/msn-flavor#backend-topology"
             target="_blank"
             rel="noreferrer"
           >
             Backend topology
           </a>{" "}
-          in the IRCx Reference at redmond.chat.
+          in the IRCx Reference at flutterby.chat.
         </p>
 
         <h2 id="9msn">9MSN Chat</h2>
@@ -536,11 +536,11 @@ export default function HistoryPage() {
           deeper resource that documents the IRCx protocol itself at the
           wire level: the{" "}
           <a
-            href="https://redmond.chat/ircx"
+            href="https://flutterby.chat/ircx"
             target="_blank"
             rel="noreferrer"
           >
-            IRCx Reference at redmond.chat
+            IRCx Reference at flutterby.chat
           </a>
           . Where this page tells the story of MSN Chat, the Reference
           unpacks the protocol &mdash; the verbs, the numerics, the modes,
@@ -551,7 +551,7 @@ export default function HistoryPage() {
         <ul>
           <li>
             <a
-              href="https://redmond.chat/ircx/overview"
+              href="https://flutterby.chat/ircx/overview"
               target="_blank"
               rel="noreferrer"
             >
@@ -562,7 +562,7 @@ export default function HistoryPage() {
           </li>
           <li>
             <a
-              href="https://redmond.chat/ircx/protocol"
+              href="https://flutterby.chat/ircx/protocol"
               target="_blank"
               rel="noreferrer"
             >
@@ -573,7 +573,7 @@ export default function HistoryPage() {
           </li>
           <li>
             <a
-              href="https://redmond.chat/ircx/auth"
+              href="https://flutterby.chat/ircx/auth"
               target="_blank"
               rel="noreferrer"
             >
@@ -585,7 +585,7 @@ export default function HistoryPage() {
           </li>
           <li>
             <a
-              href="https://redmond.chat/ircx/channels"
+              href="https://flutterby.chat/ircx/channels"
               target="_blank"
               rel="noreferrer"
             >
@@ -596,7 +596,7 @@ export default function HistoryPage() {
           </li>
           <li>
             <a
-              href="https://redmond.chat/ircx/msn-flavor"
+              href="https://flutterby.chat/ircx/msn-flavor"
               target="_blank"
               rel="noreferrer"
             >
@@ -607,7 +607,7 @@ export default function HistoryPage() {
           </li>
           <li>
             <a
-              href="https://redmond.chat/ircx/reading-the-drafts"
+              href="https://flutterby.chat/ircx/reading-the-drafts"
               target="_blank"
               rel="noreferrer"
             >

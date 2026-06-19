@@ -20,17 +20,17 @@ const projects: Project[] = [
   {
     name: "Redmond Chat",
     tagline: "MSN Chat, reborn.",
-    href: "https://redmond.chat",
+    href: "https://flutterby.chat",
     description:
-      "A free, modern reimplementation of MSN Chat (chat.msn.com) running on the original 1998 IRCx protocol. Browse rooms by category and chat in your browser — no plugins, no Java, no nostalgia tax. Power users can also point any IRC client at irc.redmond.chat over SSL.",
+      "A free, modern reimplementation of MSN Chat (chat.msn.com) running on the original 1998 IRCx protocol. Browse rooms by category and chat in your browser — no plugins, no Java, no nostalgia tax. Power users can also point any IRC client at irc.flutterby.chat over SSL.",
     features: [
       "Browser-native — works in every modern browser",
       "Original IRCx (Microsoft's 1998 IRC extension) on the back end",
-      "Secure IRC over SSL for traditional clients (irc.redmond.chat:6697)",
+      "Secure IRC over SSL for traditional clients (irc.flutterby.chat:6697)",
       "Browse rooms by category, just like the old days",
       "Free, open, and ad-free",
     ],
-    cta: "Visit redmond.chat →",
+    cta: "Visit flutterby.chat →",
   },
   {
     name: "Evaluate My Portfolio",

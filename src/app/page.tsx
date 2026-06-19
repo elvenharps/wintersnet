@@ -33,7 +33,7 @@ export default function HomePage() {
               <span aria-hidden>→</span>
             </Link>
             <a
-              href="https://redmond.chat"
+              href="https://flutterby.chat"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface)]/70 px-5 py-2.5 text-sm font-medium text-[var(--foreground)] no-underline backdrop-blur transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
@@ -75,7 +75,7 @@ export default function HomePage() {
             eyebrow="Community"
             title="Redmond Chat"
             description="A modern, MSN-Chat-style community: works in every modern browser, secure SSL/IRC, no plugins required."
-            href="https://redmond.chat"
+            href="https://flutterby.chat"
             cta="Join Redmond Chat today →"
             external
           />
