@@ -5,6 +5,16 @@ export const metadata: Metadata = {
   title: "Projects",
   description:
     "Active projects by Nathan Scott — Flutterby Chat (the spiritual successor to MSN Chat) and Evaluate My Portfolio (AI-powered investment analysis).",
+  alternates: {
+    canonical: "/projects",
+  },
+  openGraph: {
+    title: "Projects · WintersNet",
+    description:
+      "Active projects by Nathan Scott — Flutterby Chat (the spiritual successor to MSN Chat) and Evaluate My Portfolio (AI-powered investment analysis).",
+    url: "https://www.wintersnet.net/projects",
+    type: "website",
+  },
 };
 
 type Project = {

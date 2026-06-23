@@ -1,10 +1,43 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ForestSilhouette } from "@/components/forest-silhouette";
 import { Rain } from "@/components/rain";
 
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.wintersnet.net/#website",
+      url: "https://www.wintersnet.net",
+      name: "WintersNet",
+      description:
+        "A personal site that has existed in one form or another since 2003, home to a Wikipedia-cited history of MSN Chat.",
+      inLanguage: "en",
+      publisher: { "@id": "https://www.wintersnet.net/#person" },
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.wintersnet.net/#person",
+      name: "Nathan Scott",
+      url: "https://www.wintersnet.net/about",
+    },
+  ],
+};
+
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <section className="relative isolate overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <ForestSilhouette className="absolute bottom-0 left-0 w-full h-[280px] sm:h-[340px]" />

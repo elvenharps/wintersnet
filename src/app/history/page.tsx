@@ -3,24 +3,107 @@ import Link from "next/link";
 import { ForestSilhouette } from "@/components/forest-silhouette";
 import { DeadHost } from "@/components/dead-host";
 
+const PUBLISHED_ISO = "2013-01-01T00:00:00.000Z";
+const MODIFIED_ISO = "2026-06-19T00:00:00.000Z";
+
 export const metadata: Metadata = {
   title: "History of MSN Chat",
   description:
-    "A detailed, fact-checked history of MSN Chat — from its Comic Chat origins through its final years.",
+    "A detailed, fact-checked history of MSN Chat — from its 1996 Comic Chat origins, through Web Chat and the GateKeeper era, to its 2008 shutdown.",
+  keywords: [
+    "MSN Chat",
+    "MSN Chat history",
+    "Comic Chat",
+    "Microsoft Chat",
+    "MSN Web Chat",
+    "GateKeeper",
+    "IRCx",
+    "irc.msn.com",
+    "9MSN Chat",
+    "history of MSN Chat",
+  ],
+  authors: [{ name: "Nathan Scott", url: "https://www.wintersnet.net/about" }],
   alternates: {
     canonical: "/history",
   },
   openGraph: {
     title: "History of MSN Chat",
     description:
-      "A detailed, fact-checked history of MSN Chat — from its Comic Chat origins through its final years.",
+      "A detailed, fact-checked history of MSN Chat — from its 1996 Comic Chat origins, through Web Chat and the GateKeeper era, to its 2008 shutdown.",
+    url: "https://www.wintersnet.net/history",
     type: "article",
+    publishedTime: PUBLISHED_ISO,
+    modifiedTime: MODIFIED_ISO,
+    authors: ["https://www.wintersnet.net/about"],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "History of MSN Chat",
+    description:
+      "A detailed, fact-checked history of MSN Chat — from its 1996 Comic Chat origins, through Web Chat and the GateKeeper era, to its 2008 shutdown.",
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://www.wintersnet.net/history#article",
+      headline: "History of MSN Chat",
+      description:
+        "A detailed, fact-checked history of MSN Chat — from its 1996 Comic Chat origins, through Web Chat and the GateKeeper era, to its 2008 shutdown.",
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": "https://www.wintersnet.net/history",
+      },
+      datePublished: PUBLISHED_ISO,
+      dateModified: MODIFIED_ISO,
+      inLanguage: "en",
+      author: {
+        "@type": "Person",
+        name: "Nathan Scott",
+        url: "https://www.wintersnet.net/about",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "WintersNet",
+        url: "https://www.wintersnet.net",
+      },
+      about: [
+        { "@type": "Thing", name: "MSN Chat" },
+        { "@type": "Thing", name: "Microsoft Comic Chat" },
+        { "@type": "Thing", name: "IRCx" },
+      ],
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.wintersnet.net/history#breadcrumb",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "WintersNet",
+          item: "https://www.wintersnet.net",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "History of MSN Chat",
+          item: "https://www.wintersnet.net/history",
+        },
+      ],
+    },
+  ],
 };
 
 export default function HistoryPage() {
   return (
     <article>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <aside className="border-b border-[var(--accent)]/30 bg-[var(--surface-muted)]">
         <div className="mx-auto flex max-w-4xl flex-col gap-3 px-6 py-4 text-sm sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-start gap-3">

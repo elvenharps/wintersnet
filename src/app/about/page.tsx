@@ -5,6 +5,16 @@ export const metadata: Metadata = {
   title: "About",
   description:
     "About Nathan Scott, founder and maintainer of WintersNet since 2003.",
+  alternates: {
+    canonical: "/about",
+  },
+  openGraph: {
+    title: "About · WintersNet",
+    description:
+      "About Nathan Scott, founder and maintainer of WintersNet since 2003.",
+    url: "https://www.wintersnet.net/about",
+    type: "profile",
+  },
 };
 
 export default function AboutPage() {
