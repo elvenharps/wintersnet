@@ -108,6 +108,13 @@ export default function HomePage() {
             cta="Join Flutterby Chat today →"
             external
           />
+          <Card
+            eyebrow="Minecraft"
+            title="Family Server"
+            description="A quiet 24/7 survival world — live status, staff, house rules, and a BlueMap of the overworld, nether, and the end."
+            href="/minecraft"
+            cta="View the server →"
+          />
         </div>
       </section>
     </>

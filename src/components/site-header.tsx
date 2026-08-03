@@ -27,6 +27,12 @@ export function SiteHeader() {
             History
           </Link>
           <Link
+            href="/minecraft"
+            className="text-[var(--muted)] no-underline hover:text-[var(--foreground)]"
+          >
+            Minecraft
+          </Link>
+          <Link
             href="/about"
             className="text-[var(--muted)] no-underline hover:text-[var(--foreground)]"
           >
