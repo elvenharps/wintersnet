@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s · WintersNet",
   },
   description:
-    "WintersNet has existed in one form or another since 2003. Founded and maintained by Nathan Scott.",
+    "WintersNet has existed in one form or another since 2003. Created by Nathan Scott.",
   openGraph: {
     title: "WintersNet",
     description:
