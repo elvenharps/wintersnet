@@ -76,6 +76,8 @@
 
 html {
   color-scheme: light;
+  /* Reserve the scrollbar so the sticky header doesn't shift between short and long pages. */
+  scrollbar-gutter: stable;
 }
 
 html.dark {
