@@ -348,3 +348,93 @@ body {
 .prose-article .toc a:hover {
   color: var(--accent);
 }
+
+.prose-article ol {
+  margin-bottom: 1.25rem;
+  padding-left: 1.5rem;
+  list-style: decimal;
+}
+
+.prose-article ol li {
+  margin-bottom: 0.5rem;
+}
+
+.prose-article em {
+  font-style: italic;
+}
+
+.prose-article img,
+.cms-html img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+}
+
+/* TipTap editor */
+.cms-editor {
+  min-height: 4.5rem;
+  padding: 0.75rem 0.9rem;
+  outline: none;
+  color: var(--foreground);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.cms-editor-full {
+  min-height: 18rem;
+  max-height: 70vh;
+  overflow: auto;
+}
+
+.cms-editor p {
+  margin: 0.4em 0;
+}
+
+.cms-editor h2 {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 500;
+  margin: 1.1rem 0 0.4rem;
+}
+
+.cms-editor h3 {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  margin: 1rem 0 0.35rem;
+}
+
+.cms-editor ul {
+  list-style: disc;
+  padding-left: 1.4rem;
+  margin: 0.4em 0;
+}
+
+.cms-editor ol {
+  list-style: decimal;
+  padding-left: 1.4rem;
+  margin: 0.4em 0;
+}
+
+.cms-editor img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.4rem;
+}
+
+.cms-editor p.is-editor-empty:first-child::before {
+  color: var(--muted);
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+.cms-html > p:last-child {
+  margin-bottom: 0;
+}
+
+footer .cms-html p {
+  margin: 0;
+}
