@@ -35,7 +35,6 @@ export function MinecraftStatus() {
 
   useEffect(() => {
     let cancelled = false;
-    let timer: ReturnType<typeof setInterval> | undefined;
 
     const tick = async () => {
       if (cancelled) return;
@@ -43,11 +42,11 @@ export function MinecraftStatus() {
     };
 
     void tick();
-    timer = setInterval(() => void tick(), POLL_MS);
+    const timer = setInterval(() => void tick(), POLL_MS);
 
     return () => {
       cancelled = true;
-      if (timer) clearInterval(timer);
+      clearInterval(timer);
     };
   }, [refresh]);
 

@@ -32,6 +32,12 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
+
+# CMS runtime data (seed lives in src/lib/cms)
+/data/content.json
+/data/uploads/*
+!/data/uploads/.gitkeep
 
 # vercel
 .vercel

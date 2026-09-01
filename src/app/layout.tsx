@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Fraunces } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
-import { SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
+import { getContent } from "@/lib/cms/store";
+import { stripHtml } from "@/lib/cms/html";
 import "./globals.css";
 
 const inter = Inter({
@@ -16,23 +16,25 @@ const fraunces = Fraunces({
   axes: ["opsz"],
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://www.wintersnet.net"),
-  title: {
-    default: "WintersNet",
-    template: "%s · WintersNet",
-  },
-  description:
-    "WintersNet has existed in one form or another since 2003. Created by Nathan Scott.",
-  openGraph: {
-    title: "WintersNet",
-    description:
-      "Independent infrastructure and a quiet corner of the internet since 2003.",
-    url: "https://www.wintersnet.net",
-    siteName: "WintersNet",
-    type: "website",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const content = await getContent();
+  const name = stripHtml(content.site.name) || "WintersNet";
+  return {
+    metadataBase: new URL("https://www.wintersnet.net"),
+    title: {
+      default: content.site.seo.title,
+      template: `%s · ${name}`,
+    },
+    description: content.site.seo.description,
+    openGraph: {
+      title: content.site.seo.title,
+      description: content.site.seo.ogDescription || content.site.seo.description,
+      url: "https://www.wintersnet.net",
+      siteName: name,
+      type: "website",
+    },
+  };
+}
 
 const themeInit = `
 (function() {
@@ -55,11 +57,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col">
         <div className="atmosphere" aria-hidden="true" />
-        <ThemeProvider>
-          <SiteHeader />
-          <main className="flex-1">{children}</main>
-          <SiteFooter />
-        </ThemeProvider>
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );

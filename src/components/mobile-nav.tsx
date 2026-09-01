@@ -2,13 +2,10 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 import Link from "next/link";
+import { isExternalHref } from "@/lib/cms/html";
+import type { NavItem } from "@/lib/cms/schema";
 
-export type NavLink = {
-  href: string;
-  label: string;
-};
-
-export function MobileNav({ links }: { links: readonly NavLink[] }) {
+export function MobileNav({ links }: { links: readonly NavItem[] }) {
   const [open, setOpen] = useState(false);
   const menuId = useId();
   const rootRef = useRef<HTMLDivElement>(null);
@@ -79,14 +76,26 @@ export function MobileNav({ links }: { links: readonly NavLink[] }) {
         >
           <ul className="mx-auto flex max-w-5xl flex-col gap-1 px-4 py-3 text-sm sm:px-6">
             {links.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="block rounded-md px-3 py-2 text-[var(--muted)] no-underline hover:bg-[var(--surface-muted)] hover:text-[var(--foreground)]"
-                >
-                  {link.label}
-                </Link>
+              <li key={link.id}>
+                {isExternalHref(link.href) ? (
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={() => setOpen(false)}
+                    className="block rounded-md px-3 py-2 text-[var(--muted)] no-underline hover:bg-[var(--surface-muted)] hover:text-[var(--foreground)]"
+                  >
+                    <span dangerouslySetInnerHTML={{ __html: link.label }} />
+                  </a>
+                ) : (
+                  <Link
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className="block rounded-md px-3 py-2 text-[var(--muted)] no-underline hover:bg-[var(--surface-muted)] hover:text-[var(--foreground)]"
+                  >
+                    <span dangerouslySetInnerHTML={{ __html: link.label }} />
+                  </Link>
+                )}
               </li>
             ))}
           </ul>
