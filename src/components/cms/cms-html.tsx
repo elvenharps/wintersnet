@@ -20,7 +20,8 @@ export function CmsHtml({ html, className, inline }: Props) {
       <span className={className} dangerouslySetInnerHTML={{ __html: inner }} />
     );
   }
+  const classes = ["cms-html", className].filter(Boolean).join(" ");
   return (
-    <div className={className} dangerouslySetInnerHTML={{ __html: inner }} />
+    <div className={classes} dangerouslySetInnerHTML={{ __html: inner }} />
   );
 }

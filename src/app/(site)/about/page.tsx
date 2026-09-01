@@ -36,7 +36,7 @@ export default async function AboutPage() {
           <img
             src={about.image}
             alt=""
-            className="mb-10 mx-auto max-h-72 rounded-xl object-cover"
+            className="mb-10 mx-auto block max-h-72 max-w-[16rem] w-auto h-auto rounded-xl object-contain"
           />
         ) : null}
         <div className="space-y-5 text-[var(--foreground)] leading-relaxed text-lg">

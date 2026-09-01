@@ -34,9 +34,13 @@ export function ImageField({ label, value, onChange }: Props) {
     <div className="space-y-2">
       <p className="text-sm font-medium text-[var(--foreground)]">{label}</p>
       {value ? (
-        <div className="overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--surface-muted)]">
+        <div className="inline-block rounded-lg border border-[var(--border)] bg-[var(--surface-muted)] p-2">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={value} alt="" className="max-h-48 w-full object-cover" />
+          <img
+            src={value}
+            alt=""
+            className="block max-h-40 max-w-[10rem] w-auto h-auto object-contain"
+          />
         </div>
       ) : null}
       <div className="flex flex-wrap gap-2">
